@@ -1,0 +1,619 @@
+/* ============================= */
+/* STYLES.CSS - COMPILED FROM SCSS */
+/* ============================= */
+
+/* ============================= */
+/* TEMA CLARO (DEFAULT) */
+/* ============================= */
+
+:root {
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+  
+  --color-text: #212529;
+  --color-text-light: #495057;
+  --color-text-muted: #6c757d;
+  
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-accent: #e9ecef;
+}
+
+/* ============================= */
+/* TEMA ESCURO */
+/* ============================= */
+
+body.theme-dark {
+  --color-primary: #0056b3;
+  --color-secondary: #495057;
+  --color-success: #1e7e34;
+  --color-danger: #bd2130;
+  --color-warning: #daa520;
+  --color-info: #0c5460;
+  
+  --color-text: #f8f9fa;
+  --color-text-light: #dee2e6;
+  --color-text-muted: #adb5bd;
+  
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-bg-accent: #404040;
+}
+
+/* ============================= */
+/* TEMA MODERNO */
+/* ============================= */
+
+body.theme-modern {
+  --color-primary: #6366f1;
+  --color-secondary: #ec4899;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #06b6d4;
+  
+  --color-text: #1f2937;
+  --color-text-light: #4b5563;
+  --color-text-muted: #9ca3af;
+  
+  --color-bg: #f9fafb;
+  --color-bg-secondary: #f3f4f6;
+  --color-bg-accent: #e5e7eb;
+}
+
+/* ============================= */
+/* TIPOGRAFIA GLOBAL */
+/* ============================= */
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h4, h5, h6 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+small {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-light);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+
+.navbar {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  padding: 12px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-brand:hover {
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.badge {
+  background-color: var(--color-danger);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ============================= */
+/* BOTÕES */
+/* ============================= */
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+  border-color: var(--color-success);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: white;
+  border-color: var(--color-danger);
+}
+
+.btn-lg {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
+.btn-comprar {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-comprar:hover {
+  opacity: 0.8;
+}
+
+/* ============================= */
+/* CARTÕES */
+/* ============================= */
+
+.card {
+  background-color: var(--color-bg-accent);
+  color: var(--color-text);
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  color: var(--color-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-light);
+}
+
+/* ============================= */
+/* CONTAINER & GRID */
+/* ============================= */
+
+.container {
+  width: 100%;
+  padding-right: 24px;
+  padding-left: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -16px;
+  margin-left: -16px;
+}
+
+@media (max-width: 768px) {
+  .row {
+    margin-right: -8px;
+    margin-left: -8px;
+  }
+}
+
+.col-md-4 {
+  flex: 0 0 33.3333%;
+  padding: 16px;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .col-md-4,
+  .col-md-6 {
+    flex: 0 0 100%;
+    padding: 8px;
+  }
+}
+
+.g-4 {
+  gap: 24px;
+}
+
+/* ============================= */
+/* ESPAÇAMENTO */
+/* ============================= */
+
+.mt-3 {
+  margin-top: 24px;
+}
+
+.mt-5 {
+  margin-top: 56px;
+}
+
+.mb-4 {
+  margin-bottom: 24px;
+}
+
+.p-3 {
+  padding: 16px;
+}
+
+.p-4 {
+  padding: 24px;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.shadow {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* FORMULÁRIOS */
+/* ============================= */
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-clip: padding-box;
+  border: 1px solid var(--color-bg-secondary);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border-color: var(--color-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.mb-3 {
+  margin-bottom: 24px;
+}
+
+/* ============================= */
+/* LISTAS */
+/* ============================= */
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 12px 24px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.list-group-item:first-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  padding: 16px;
+  text-align: center;
+  margin-top: 56px;
+  border-top: 1px solid var(--color-bg-accent);
+}
+
+/* ============================= */
+/* IMAGENS */
+/* ============================= */
+
+.img-produto {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 28px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .navbar .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .nav {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .container {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  
+  .col-md-4,
+  .col-md-6 {
+    flex: 0 0 100%;
+  }
+  
+  .card {
+    margin-bottom: 16px;
+  }
+}
+
+/* ============================= */
+/* UTILIDADES */
+/* ============================= */
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.text-white {
+  color: white;
+}
+
+.bg-light {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-dark {
+  background-color: var(--color-bg-accent);
+}
+
+.border {
+  border: 1px solid var(--color-bg-secondary);
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.d-none {
+  display: none;
+}

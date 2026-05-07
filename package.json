@@ -1,0 +1,34 @@
+{
+  "name": "desafio_pratico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bernardoribeiro17/desafio_pratico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bernardoribeiro17/desafio_pratico/issues"
+  },
+  "homepage": "https://github.com/bernardoribeiro17/desafio_pratico#readme",
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.{js,html,css}": "prettier --write"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1"
+  }
+}

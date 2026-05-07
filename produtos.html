@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TechStore - Produtos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+.img-produto{
+height:200px;
+object-fit:cover;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="index.html">TechStore</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="produtos.html">Produtos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="contato.html">Contato</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#carrinho">
+Carrinho 🛒
+<span class="badge bg-danger" id="contador-carrinho">0</span>
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- PRODUTOS -->
+
+<div class="container mt-5">
+
+<h2 class="text-center mb-4">Nossos Produtos</h2>
+
+<div class="row g-4">
+
+
+<!-- PRODUTO 1 -->
+
+<div class="col-md-4">
+
+<div class="card h-100 shadow">
+
+<img
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"
+class="card-img-top img-produto">
+
+<div class="card-body">
+
+<h5>Smartphone XPro</h5>
+
+<p>Tela AMOLED 6.5", 128GB, câmera 50MP.</p>
+
+<p class="fw-bold text-success">
+R$ 2.500,00
+</p>
+
+<label class="form-label">Quantidade</label>
+
+<input
+type="number"
+class="form-control qtd-produto"
+value="1"
+min="1">
+
+<button
+class="btn btn-success mt-3 w-100 btn-comprar"
+data-nome="Smartphone XPro"
+data-preco="2500">
+
+Adicionar ao Carrinho
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUTO 2 -->
+
+<div class="col-md-4">
+
+<div class="card h-100 shadow">
+
+<img
+src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600"
+class="card-img-top img-produto">
+
+<div class="card-body">
+
+<h5>Notebook UltraTech</h5>
+
+<p>i7, 16GB RAM, SSD 512GB.</p>
+
+<p class="fw-bold text-success">
+R$ 4.500,00
+</p>
+
+<label class="form-label">Quantidade</label>
+
+<input
+type="number"
+class="form-control qtd-produto"
+value="1"
+min="1">
+
+<button
+class="btn btn-success mt-3 w-100 btn-comprar"
+data-nome="Notebook UltraTech"
+data-preco="4500">
+
+Adicionar ao Carrinho
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUTO 3 -->
+
+<div class="col-md-4">
+
+<div class="card h-100 shadow">
+
+<img
+src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600"
+class="card-img-top img-produto">
+
+<div class="card-body">
+
+<h5>Fone Bluetooth Pro</h5>
+
+<p>Cancelamento de ruído ativo, bateria 30h.</p>
+
+<p class="fw-bold text-success">
+R$ 350,00
+</p>
+
+<label class="form-label">Quantidade</label>
+
+<input
+type="number"
+class="form-control qtd-produto"
+value="1"
+min="1">
+
+<button
+class="btn btn-success mt-3 w-100 btn-comprar"
+data-nome="Fone Bluetooth Pro"
+data-preco="350">
+
+Adicionar ao Carrinho
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CARRINHO -->
+
+<div class="container mt-5" id="carrinho">
+
+<h3 class="mb-4">
+Carrinho de Compras
+</h3>
+
+<ul
+class="list-group shadow-sm mb-3"
+id="lista-carrinho">
+</ul>
+
+<div class="alert alert-info d-flex align-items-center">
+
+<h5 class="m-0">
+Total: R$ <span id="total-carrinho">0,00</span>
+</h5>
+
+<div class="ms-auto">
+
+<button
+class="btn btn-success btn-sm me-2"
+onclick="finalizarCompra()">
+
+Finalizar Compra
+
+</button>
+
+<button
+class="btn btn-danger btn-sm"
+onclick="limparCarrinho()">
+
+Limpar Carrinho
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TOAST BOOTSTRAP -->
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index:11">
+
+<div id="toastCarrinho" class="toast align-items-center text-bg-success border-0">
+
+<div class="d-flex">
+
+<div class="toast-body">
+Produto adicionado ao carrinho 🛒
+</div>
+
+<button
+type="button"
+class="btn-close btn-close-white me-2 m-auto"
+data-bs-dismiss="toast">
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white text-center p-3 mt-5">
+
+© 2026 TechStore - Todos os direitos reservados
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

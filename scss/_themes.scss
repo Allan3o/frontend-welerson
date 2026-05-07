@@ -1,0 +1,250 @@
+// =============================
+// TEMAS
+// =============================
+
+// =============================
+// TEMA CLARO (Default)
+// =============================
+
+@mixin theme-light {
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --color-success: #{$color-success-light};
+  --color-danger: #{$color-danger-light};
+  --color-warning: #{$color-warning-light};
+  --color-info: #{$color-info-light};
+  
+  --color-text: #{$color-text-dark-light};
+  --color-text-light: #{$color-text-light};
+  --color-text-muted: #{$color-text-muted-light};
+  
+  --color-bg: #{$color-bg-primary-light};
+  --color-bg-secondary: #{$color-bg-secondary-light};
+  --color-bg-accent: #{$color-bg-accent-light};
+}
+
+// =============================
+// TEMA ESCURO
+// =============================
+
+@mixin theme-dark {
+  --color-primary: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary-dark};
+  --color-success: #{$color-success-dark};
+  --color-danger: #{$color-danger-dark};
+  --color-warning: #{$color-warning-dark};
+  --color-info: #{$color-info-dark};
+  
+  --color-text: #{$color-text-dark-dark};
+  --color-text-light: #{$color-text-light-dark};
+  --color-text-muted: #{$color-text-muted-dark};
+  
+  --color-bg: #{$color-bg-primary-dark};
+  --color-bg-secondary: #{$color-bg-secondary-dark};
+  --color-bg-accent: #{$color-bg-accent-dark};
+}
+
+// =============================
+// TEMA MODERNO
+// =============================
+
+@mixin theme-modern {
+  --color-primary: #{$color-primary-modern};
+  --color-secondary: #{$color-secondary-modern};
+  --color-success: #{$color-success-modern};
+  --color-danger: #{$color-danger-modern};
+  --color-warning: #{$color-warning-modern};
+  --color-info: #{$color-info-modern};
+  
+  --color-text: #{$color-text-dark-modern};
+  --color-text-light: #{$color-text-light-modern};
+  --color-text-muted: #{$color-text-muted-modern};
+  
+  --color-bg: #{$color-bg-primary-modern};
+  --color-bg-secondary: #{$color-bg-secondary-modern};
+  --color-bg-accent: #{$color-bg-accent-modern};
+}
+
+// =============================
+// MIXIN PARA TIPOGRAFIA
+// =============================
+
+@mixin typography($size, $weight, $style: $font-style-normal, $line-height: $line-height-normal) {
+  font-family: $font-primary;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  line-height: $line-height;
+  color: var(--color-text);
+}
+
+// =============================
+// CLASSES DE TEMAS
+// =============================
+
+.theme-light {
+  @include theme-light;
+}
+
+.theme-dark {
+  @include theme-dark;
+}
+
+.theme-modern {
+  @include theme-modern;
+}
+
+// =============================
+// TIPOGRAFIA GLOBAL
+// =============================
+
+body {
+  @include theme-light;
+  @include typography($font-size-base, $font-weight-normal);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  @include typography($font-size-xxl, $font-weight-bold, $font-style-normal, $line-height-tight);
+}
+
+h2 {
+  @include typography($font-size-xl, $font-weight-bold, $font-style-normal, $line-height-tight);
+}
+
+h3 {
+  @include typography($font-size-lg, $font-weight-semi-bold, $font-style-normal, $line-height-tight);
+}
+
+h4, h5, h6 {
+  @include typography($font-size-base, $font-weight-semi-bold, $font-style-normal, $line-height-normal);
+}
+
+p {
+  @include typography($font-size-base, $font-weight-normal, $font-style-normal, $line-height-normal);
+}
+
+small {
+  @include typography($font-size-sm, $font-weight-normal, $font-style-normal, $line-height-normal);
+  color: var(--color-text-light);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+// =============================
+// COMPONENTES BÁSICOS
+// =============================
+
+.navbar {
+  background-color: var(--color-bg-secondary) !important;
+  color: var(--color-text) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  @include typography($font-size-lg, $font-weight-bold);
+}
+
+.nav-link {
+  @include typography($font-size-base, $font-weight-normal);
+  color: var(--color-text) !important;
+  
+  &:hover {
+    color: var(--color-primary) !important;
+  }
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  
+  &:hover {
+    background-color: darken(#007bff, 10%);
+    border-color: darken(#007bff, 10%);
+  }
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.card {
+  background-color: var(--color-bg-accent);
+  color: var(--color-text);
+  border: 1px solid var(--color-bg-secondary);
+}
+
+.card-title {
+  color: var(--color-primary);
+  @include typography($font-size-lg, $font-weight-semi-bold);
+}
+
+.card-body {
+  padding: $spacing-lg;
+}
+
+footer {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+  padding: $spacing-md;
+}
+
+.badge {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+// =============================
+// FORMULÁRIOS
+// =============================
+
+.form-control {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-bg-secondary);
+  
+  &:focus {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.form-label {
+  @include typography($font-size-sm, $font-weight-semi-bold);
+  color: var(--color-text);
+}
+
+// =============================
+// LISTAS
+// =============================
+
+.list-group-item {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-bg-secondary);
+  
+  &:hover {
+    background-color: var(--color-bg-accent);
+  }
+}
+
+// =============================
+// TOAST
+// =============================
+
+.toast {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
+}
