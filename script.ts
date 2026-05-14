@@ -1,36 +1,30 @@
-// =============================
-// CARRINHO COM LOCAL STORAGE
-// =============================
+interface Produto {
+  nome: string;
+  preco: number;
+  qtd: number;
+}
 
-let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+let carrinho: Produto[] = JSON.parse(localStorage.getItem('carrinho') || '[]');
 
-function salvarCarrinho() {
+function salvarCarrinho(): void {
   localStorage.setItem('carrinho', JSON.stringify(carrinho));
 }
 
-// =============================
-// CONTADOR DO CARRINHO
-// =============================
-
-function atualizarContador() {
+function atualizarContador(): void {
   const contador = document.getElementById('contador-carrinho');
 
   if (!contador) return;
 
-  let totalItens = 0;
+  let totalItens: number = 0;
 
   carrinho.forEach((item) => {
     totalItens += item.qtd;
   });
 
-  contador.textContent = totalItens;
+  contador.textContent = totalItens.toString();
 }
 
-// =============================
-// ATUALIZAR CARRINHO NA TELA
-// =============================
-
-function atualizarCarrinho() {
+function atualizarCarrinho(): void {
   const lista = document.getElementById('lista-carrinho');
   const total = document.getElementById('total-carrinho');
 
@@ -38,7 +32,7 @@ function atualizarCarrinho() {
 
   lista.innerHTML = '';
 
-  let soma = 0;
+  let soma: number = 0;
 
   carrinho.forEach((item) => {
     const li = document.createElement('li');
@@ -66,16 +60,15 @@ function atualizarCarrinho() {
   atualizarContador();
 }
 
-// =============================
-// ADICIONAR PRODUTO
-// =============================
-
 document.querySelectorAll('.btn-comprar').forEach((botao) => {
-  botao.addEventListener('click', function () {
-    const nome = this.dataset.nome;
-    const preco = parseFloat(this.dataset.preco);
+  botao.addEventListener('click', function (this: Element) {
+    const elemento = this as HTMLElement;
+    const nome = (elemento as any).dataset.nome;
+    const preco = parseFloat((elemento as any).dataset.preco);
 
-    const qtdInput = this.parentElement.querySelector('.qtd-produto');
+    const qtdInput = elemento.parentElement?.querySelector(
+      '.qtd-produto'
+    ) as HTMLInputElement;
     const qtd = parseInt(qtdInput.value);
 
     const produtoExistente = carrinho.find((item) => item.nome === nome);
@@ -97,25 +90,17 @@ document.querySelectorAll('.btn-comprar').forEach((botao) => {
   });
 });
 
-// =============================
-// TOAST BOOTSTRAP
-// =============================
-
-function mostrarToast() {
+function mostrarToast(): void {
   const toastElemento = document.getElementById('toastCarrinho');
 
   if (!toastElemento) return;
 
-  const toast = new bootstrap.Toast(toastElemento);
+  const toast = new (window as any).bootstrap.Toast(toastElemento);
 
   toast.show();
 }
 
-// =============================
-// LIMPAR CARRINHO
-// =============================
-
-function limparCarrinho() {
+function limparCarrinho(): void {
   carrinho = [];
 
   salvarCarrinho();
@@ -123,11 +108,7 @@ function limparCarrinho() {
   atualizarCarrinho();
 }
 
-// =============================
-// FINALIZAR COMPRA
-// =============================
-
-function finalizarCompra() {
+function finalizarCompra(): void {
   if (carrinho.length === 0) {
     alert('Seu carrinho está vazio!');
 
@@ -143,11 +124,12 @@ function finalizarCompra() {
   atualizarCarrinho();
 }
 
-// =============================
-// DEPOIMENTOS API
-// =============================
+interface Depoimento {
+  name: string;
+  body: string;
+}
 
-async function carregarDepoimentos() {
+async function carregarDepoimentos(): Promise<void> {
   const container = document.getElementById('lista-depoimentos');
 
   if (!container) return;
@@ -157,7 +139,7 @@ async function carregarDepoimentos() {
       'https://jsonplaceholder.typicode.com/comments?_limit=3'
     );
 
-    const dados = await resposta.json();
+    const dados: Depoimento[] = await resposta.json();
 
     dados.forEach((depoimento) => {
       const div = document.createElement('div');
@@ -179,10 +161,6 @@ async function carregarDepoimentos() {
     container.innerHTML = 'Erro ao carregar depoimentos.';
   }
 }
-
-// =============================
-// INICIALIZAÇÃO
-// =============================
 
 atualizarCarrinho();
 atualizarContador();
